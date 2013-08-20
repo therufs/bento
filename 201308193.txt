@@ -1,0 +1,270 @@
+    1  sudo synaptic
+    2  sudo vim /etc/apt/sources.list
+    3  sudo gedit /etc/apt/sources.list
+    4  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
+    5  sudo apt-get update
+    6  sudo apt-get install spotify-client
+    7  sudo synaptic
+    8  sudo apt-get update
+    9  sudo apt-get install spotify-client
+   10  sudo gedit /etc/apt/sources.list
+   11  sudo apt-get update
+   12  sudo apt-get install spotify-client
+   13  sudo synaptic
+   14  sudo gedit /etc/apt/sources.list
+   15  sudo apt-get install spotify-client
+   16  synaptic
+   17  sudo synaptic
+   18  sudo apt-get update
+   19  sudo gedit /etc/apt/sources.list
+   20  sudo apt-get update
+   21  sudo apt-get install spotify-client
+   22  exit
+   23  sudo synaptic
+   24  sudo gedit /etc/apt/sources.list
+   25  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub
+   26  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add-
+   27  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+   28  sudo apt-get update
+   29  sudo apt-get install google-talkplugin
+   30  rvm
+   31  ruby -v
+   32  vim .bash_profile
+   33  rvm get head && rvm reload
+   34  rvm
+   35  ruby -v
+   36  vim
+   37  sudo synaptic
+   38  ruby -v
+   39  rvm get head && rvm reload
+   40  sudo synaptic
+   41  \curl -L https://get.rvm.io | bash
+   42  synaptic
+   43  sudo synaptic
+   44  \curl -L https://get.rvm.io | bash
+   45  vim .bash_profile
+   46  rvm get head && rvm reload
+   47  rvm notes
+   48  sudo rvm notes
+   49  \curl -L https://get.rvm.io | bash -s stable --rails
+   50  rvm
+   51  source .rvm/scripts/rvm
+   52  rvm
+   53  source .rvm/scripts/rvm
+   54  rvm use 1.9.3@rails3tutorial2ndEd --create --default
+   55  ruby -v
+   56  RVM INSTALL 1.9.3
+   57  rvm install 1.9.3
+   58  source .rvm/scripts/rvm
+   59  rvm use 1.9.3@rails3tutorial2ndEd --create --default
+   60  ruby -v
+   61  RVM INSTALL 1.9.3
+   62  rvm install 1.9.3
+   63  source .rvm/scripts/rvm
+   64  rvm use 1.9.3@rails3tutorial2ndEd --create --default
+   65  ruby -v
+   66  RVM INSTALL 1.9.3
+   67  rvm install 1.9.3
+   68  ls
+   69  mkdir ~/src && cd $_
+   70  wget -N http://nodejs.org/dist/node-latest.tar.gz
+   71  tar xzvf node-latest.tar.gz && cd node-v*
+   72  ./configure
+   73  checkinstall #
+   74  sudo checkinstall #
+   75  sudo dpkg -i node_*
+   76  rails s
+   77  cd ..
+   78  ls
+   79  cd rails_projects/first_app/
+   80  rails s
+   81  git config --global user.name "Ruthan"
+   82  git config --global user.email rcfreese@gmail.com
+   83  git config --global alias.co checkout
+   84  git config --global core.editor "vim"
+   85  git init
+   86  vim .gitignore
+   87  git add .
+   88  git status
+   89  git commit -m "Initial commit"
+   90  git log
+   91  git remote add origin https://github.com/therufs/first_app_1.git
+   92  git push -u origin master
+   93  git checkout -b modify-README
+   94  git branch
+   95  git mv README.rdoc README.md
+   96  vim README.md
+   97  git status
+   98  git commit -a -m "Improve the README file"
+   99  git co master
+  100  git merge modify-README
+  101  git branch -d modify-README
+  102  git push
+  103  vim Gemfile
+  104  bundle install --without production
+  105  get -q0- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+  106  wget -q0- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+  107  wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+  108  heroku login
+  109  heroku create
+  110  git push heroku master
+  111  heroku keys:add
+  112  git push heroku master
+  113  vim Gemfile
+  114  git push heroku master
+  115  bundle install
+  116  logout
+  117  source .rvm/scripts/rvm
+  118  rvm use 1.9.3@rails3tutorial2ndEd --create --default
+  119  ruby -v
+  120  RVM INSTALL 1.9.3
+  121  rvm install 1.9.3
+  122  rvm use 1.9.3@rails3tutorial2ndEd --create --default
+  123  rvm --help
+  124  which gem
+  125  gem --v
+  126  gem --help
+  127  gem -v
+  128  gem update --system 1.8.24
+  129  rails -v
+  130  gem install rails -v 3.2.14
+  131  sudo synaptic
+  132  mkdr rails_projects
+  133  mkdir rails_projects
+  134  cd rails_projects
+  135  rails new first_app
+  136  cd first_app/
+  137  vim Gemfile
+  138  cd ..
+  139  bundle update
+  140  cd /rails_projects/first_app/
+  141  cd rails_projects
+  142  cd first_app/
+  143  bundle update
+  144  bundle install
+  145  rails server
+  146  sudo synaptic
+  147  gem install execjs
+  148  rails server
+  149  sudo synaptic
+  150  sudo apt-get update
+  151  apt-get update
+  152  sudo apt-get update
+  153  sudo apt-get upgrade
+  154  sudo apt-get dist-upgrade
+  155  rails server
+  156  gem install execjs
+  157  rails s
+  158  bundle install
+  159  rails s
+  160  vim Gemifle
+  161  ls
+  162  vim Gemfile
+  163  bundle install
+  164  rails s
+  165  sudo synaptic
+  166  sudo apt-get install python g++ make checkinstall
+  167  mkdir /src && cd $_
+  168  cd /
+  169  cd home
+  170  cd ..
+  171  exit
+  172  rvm use 1.9.3@rails3tutorial2ndEd --create --default
+  173  /bin/bash --login
+  174  logout
+  175  exit
+  176  rvm use 1.91.
+  177  rvm use
+  178  rvm use 1.9.3
+  179  bundle install
+  180  vim Gemfile
+  181  bundle install
+  182  vim Gemfile
+  183  bundle install
+  184  gem install pg
+  185  where mkmf.log
+  186  find mkmf.log
+  187  ls
+  188  cd config
+  189  ls
+  190  cd ..
+  191  rails s
+  192  vim Gemfile
+  193  bundle install
+  194  vim Gemfile
+  195  rails s
+  196  git push heroku master
+  197  gem install sqlite3 -v '1.3.5'
+  198  cd ..
+  199  mkdir first_app_old
+  200  cd first_app_old
+  201  ls
+  202  git clone https://github.com/therufs/first_app.git
+  203  git init
+  204  git add .
+  205  git status
+  206  ls
+  207  cd first_app
+  208  ls
+  209  git add .
+  210  git status
+  211  git log
+  212  vim Gemfile
+  213  bundle install --without production
+  214  heroku create
+  215  git push heroku master
+  216  logout
+  217  cd rails_projects/first_app/
+  218  git push heroku master
+  219  vim Gemfile
+  220  bundle install
+  221  rvm -v
+  222  rvm use 1.9.1
+  223  /bin/bash --login
+  224  exit
+  225  rails c
+  226  ls
+  227  cd rails_projects/bento_1
+  228  ls
+  229  rails c
+  230  vim example_user.rb
+  231  rails c
+  232  vim example_user.rb
+  233  mv example_user.rb example_bento.rb
+  234  ls
+  235  rails c
+  236  ls
+  237  git add .
+  238  git commit -m "Add a full_title helper"
+  239  git push
+  240  git push heroku
+  241  rails c
+  242  exit
+  243  cd rails_projects/bento_1
+  244  ri String
+  245  ri -?
+  246  rdoc
+  247  cd ..
+  248  rdoc
+  249  ri String
+  250  ls
+  251  cd doc
+  252  ri String
+  253  ri -c
+  254  ri Hash
+  255  cd /bento
+  256  cd ..
+  257  cd bento
+  258  cd bento_1
+  259  git checkout -b filling-in-layout
+  260  vim app/views/layouts/application.html.erb
+  261  vim -r app/views/layouts/application.html.erb
+  262  vim app/views/static_pages/home.html.erb 
+  263  rails s
+  264  rails server
+  265  ls
+  266  rm -rf s
+  267  rm -rf server
+  268  ls
+  269  sudo synaptic
+  270  history > 201308193.txt
