@@ -8,9 +8,9 @@ subject { page }
     before { visit root_path }
 
     it { should have_content 'Bento' }
-    it { should have_selector 'title',
-               :text => "Bento App" }
-    it { should_not have_selector 'title', :text => '| Home' }
+    it { should have_selector('title',
+               text: full_title('')) }
+    it { should_not have_selector 'title', text: '| Home' }
   end
 
 
