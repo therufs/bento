@@ -1,0 +1,198 @@
+diff --git a/Gemfile b/Gemfile
+index 1dff1e9..163b154 100644
+--- a/Gemfile
++++ b/Gemfile
+@@ -1,6 +1,7 @@
+ source 'https://rubygems.org'
+ 
+ gem 'rails', '3.2.14'
++gem 'bootstrap-sass', '2.1'
+ 
+ # Bundle edge Rails instead:
+ # gem 'rails', :git => 'git://github.com/rails/rails.git'
+diff --git a/Gemfile.lock b/Gemfile.lock
+index a995b65..b9f63a6 100644
+--- a/Gemfile.lock
++++ b/Gemfile.lock
+@@ -29,6 +29,7 @@ GEM
+       i18n (~> 0.6, >= 0.6.4)
+       multi_json (~> 1.0)
+     arel (3.0.2)
++    bootstrap-sass (2.1.0.0)
+     builder (3.0.4)
+     capybara (1.1.2)
+       mime-types (>= 1.16)
+@@ -140,6 +141,7 @@ PLATFORMS
+   ruby
+ 
+ DEPENDENCIES
++  bootstrap-sass (= 2.1)
+   capybara (= 1.1.2)
+   coffee-rails (= 3.2.2)
+   jquery-rails (= 2.0.2)
+diff --git a/app/controllers/static_pages_controller.rb b/app/controllers/static_pages_controller.rb
+index 953e2d7..50e74cc 100644
+--- a/app/controllers/static_pages_controller.rb
++++ b/app/controllers/static_pages_controller.rb
+@@ -8,4 +8,7 @@ class StaticPagesController < ApplicationController
+   def about
+   end
+ 
++  def contact
++  end
++
+ end
+diff --git a/app/helpers/application_helper.rb b/app/helpers/application_helper.rb
+index e8357af..e0c65a9 100644
+--- a/app/helpers/application_helper.rb
++++ b/app/helpers/application_helper.rb
+@@ -5,7 +5,7 @@ def full_title(page_title)
+     if page_title.empty?
+       base_title
+     else
+-      '#{base_title} | #{page_title}'
++      "#{base_title} | #{page_title}"
+     end
+   end
+ end
+diff --git a/app/views/layouts/.application.html.erb.swp b/app/views/layouts/.application.html.erb.swp
+deleted file mode 100644
+index 43fd89c..0000000
+Binary files a/app/views/layouts/.application.html.erb.swp and /dev/null differ
+diff --git a/app/views/layouts/application.html.erb b/app/views/layouts/application.html.erb
+index b0cd87a..edb85c8 100644
+--- a/app/views/layouts/application.html.erb
++++ b/app/views/layouts/application.html.erb
+@@ -1,15 +1,18 @@
+ <!DOCTYPE html>
+ <html>
+-<head>
+-  <title><%= full_title(yield(:title)) %></title>
+-  <%= stylesheet_link_tag    "application", :media => "all" %>
+-  <%= javascript_include_tag "application" %>
+-  <%= csrf_meta_tags %>
+-</head>
+-<body>
+-
+-<%= yield %>
++  <head>
++    <title><%= full_title(yield(:title)) %></title>
++    <%= stylesheet_link_tag    "application", media:  "all" %>
++    <%= javascript_include_tag "application" %>
++    <%= csrf_meta_tags %>
++    <%= render 'layouts/shim' %>
++  </head>
+ 
++<body>
++  <%= render 'layouts/header' %>
++  <div class="container">
++    <%= yield %>
++    <%= render 'layouts/footer' %>
++  </div>
+ </body>
+ </html>
+-
+diff --git a/app/views/static_pages/home.html.erb b/app/views/static_pages/home.html.erb
+index 2fe03eb..bf04186 100644
+--- a/app/views/static_pages/home.html.erb
++++ b/app/views/static_pages/home.html.erb
+@@ -1,2 +1,9 @@
+-<h1>Bento App</h1>
+-<p>This is the home page for the bento app!</p>
++<div class="center hero-unit">
++<h1>Welcome to Bento</h1>
++
++  <h2>This is the home page for the <a href="http://justbento.com">bento</a> app!</h2>
++
++  <%= link_to "Sign up now!","#", class: "btn btn-large btn-primary" %>
++</div>
++
++<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+diff --git a/config/routes.rb b/config/routes.rb
+index b4b5b14..d600f90 100644
+--- a/config/routes.rb
++++ b/config/routes.rb
+@@ -1,7 +1,8 @@
+ Bento1::Application.routes.draw do
+-  get "static_pages/home"
+-  get "static_pages/help"
+-  get "static_pages/about"
++  root to: 'static_pages#home'
++  match '/help', to: 'static_pages#help'
++  match '/about', to: 'static_pages#about'
++  match '/contact', to: 'static_pages#contact'
+ 
+   # The priority is based upon order of creation:
+   # first created -> highest priority.
+diff --git a/spec/requests/static_pages_spec.rb b/spec/requests/static_pages_spec.rb
+index de9d1da..ac0e6b6 100644
+--- a/spec/requests/static_pages_spec.rb
++++ b/spec/requests/static_pages_spec.rb
+@@ -3,18 +3,18 @@ require 'spec_helper'
+ describe "StaticPages" do
+   describe "Home page" do
+     it "should have the content 'Bento'" do
+-      visit '/static_pages/home'
++      visit 'root_path'
+       page.should have_content('Bento')
+     end
+   
+     it "should have the right title" do
+-      visit '/static_pages/home'
++      visit 'root_path'
+       page.should have_selector('title',
+                :text => "Bento App")
+     end
+ 
+     it "should not have a custom page title" do
+-      visit '/static_pages/home'
++      visit 'root_path'
+       page.should_not have_selector('title', :text => '| Home')
+     end
+   end
+@@ -22,12 +22,12 @@ describe "StaticPages" do
+ 
+   describe "Help page" do
+     it "should have the content 'HALP'"do
+-      visit '/static_pages/help'
++      visit 'help_path'
+       page.should have_content('HALP')
+     end
+   
+     it "should have the right title" do
+-      visit '/static_pages/help'
++      visit 'help_path'
+       page.should have_selector('title',
+                :text => "Help")
+     end
+@@ -35,15 +35,28 @@ describe "StaticPages" do
+ 
+   describe "About page" do 
+     it "should have the content 'About Bento'" do
+-      visit '/static_pages/about'
++      visit 'about_path'
+       page.should have_content('About Bento')
+     end
+   
+ 
+     it "should have the right title" do
+-      visit '/static_pages/about'
++      visit 'about_path'
+       page.should have_selector('title',
+                :text => "Bento App | About")
+     end
+   end
++
++  describe "Contact page" do 
++
++    it "should have the h1 'Contact'" do
++      visit 'contact_path'
++      page.should have_selector('h1', text: 'Contact')
++    end
++
++    it "should have the title 'Contact'" do
++      visit 'contact_path'
++      page.should have_selector('title', text: 'Contact')
++    end
++  end
+ end
