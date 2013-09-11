@@ -11,7 +11,7 @@ subject { page }
 
   describe "Home page" do
     before { visit root_path }
-    let(:heading) { 'Bento App' }
+    let(:heading) { 'Bento Tracker' }
     let(:page_title) { '' }
 
     it_should_behave_like "all static pages"
@@ -21,14 +21,14 @@ subject { page }
 
   describe "Help page" do
     before { visit help_path }
-    it { should have_content 'HALP' }
+    it { should have_content 'help' }
     it { should have_selector 'title', :text => "Help" }
   end
 
   describe "About page" do 
     before {  visit about_path }
     it { should have_content 'About Bento' }
-    it { should have_selector 'title', :text => "Bento App | About" }
+    it { should have_selector 'title', :text => "Bento Tracker | About" }
   end
 
   describe "Contact page" do
@@ -48,8 +48,8 @@ subject { page }
     click_link "Home"
     click_link "Sign up now!"
     page.should have_selector 'title', text: full_title('Sign up')
-    click_link "bento app"
-    page.should have_selector 'title', text: 'Bento App'
+    click_link "bento tracker"
+    page.should have_selector 'title', text: 'Bento Tracker'
   end
 
 end
